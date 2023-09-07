@@ -1,0 +1,60 @@
+Regular Expression
+
+=================================================================
+			Karakter
+=================================================================
+\w	=> Karakter [a-z, 0-9, _]
+\W	=> Karakter non ^[a-z, 0-9, _]
+\d	=> Karakter digit [0-9]
+\D	=> Karakter non digit ^[0-9]
+\s	=> Karakter spasi
+\S	=> Karakter non spasi
+.	=> Karakter apapun, kecuali newline
+
+
+=================================================================
+			Quantifier
+=================================================================
++		=> Mengulangi pattern sebelumnya sebanyak 1 sampai tak hingga
+*		=> Mengulangi pattern sebelumnya sebanyak 0 sampai tak hingga
+?		=> Mengulangi pattern sebelumnya sebanyak 0 sampai 1
+{const}		=> Mengulangi pattern sebelumnya sebanyak "const"
+{min,}		=> Mengulangi pattern sebelumnya sebanyak "min" sampai tak hingga
+{min,max}	=> Mengulangi pattern sebelumnya sebanyak "min" sampai "max"
+()		=> Melakukan grouping pattern
+|		=> Klausa OR antara dua group pattern
+
+
+=================================================================
+		Rumus Pencarian
+=================================================================
+1.	<pattern_value>								
+ 	Mendapatkan elemen sesuai dengan pattern
+
+2.	(?<=(<key_awal>))<pattern_value>
+	Mendapatkan elemen setelah <key_awal>
+
+3.	<pattern_value>(?=(<key_akhir>))
+	Mendapatkan elemen sebelum <key_akhir>
+
+4.	(?<=(<key_awal>))<pattern_value>(?=(<key_akhir>))
+	Mendapatkan elemen setelah <key_awal> sebelum <key_akhir>
+
+=================================================================
+		     Use Case
+=================================================================
+
+Regex Patern -------> (?<=road\W\:\s\W)\w.+(?=\"\.)  or (?<=road\W\:\s\W)[\w\s\.]+
+
+
+ {
+        "road": "Jalan M. Haji Thamrin",
+        "city_block": "RW 03",
+        "village": "Kedoya Selatan",
+        "suburb": "Kebon Jeruk",
+        "city_district": "West Jakarta",
+        "city": "Jakarta Special Capital Region",
+        "postcode": "11520",
+        "country": "Indonesia",
+        "country_code": "id"
+    },
